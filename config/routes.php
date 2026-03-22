@@ -27,6 +27,9 @@ Router::group('/admin', function () {
     Router::post('/login', 'Admin\\AuthController@login');
     Router::get('/logout', 'Admin\\AuthController@logout');
 
+    Router::get('/homepage', 'Admin\\HomepageController@index');
+    Router::post('/homepage', 'Admin\\HomepageController@store');
+
     Router::resource('/pages', 'Admin\\PageController');
     Router::resource('/services', 'Admin\\ServiceController');
     Router::resource('/portfolio', 'Admin\\PortfolioController');

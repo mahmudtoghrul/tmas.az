@@ -25,6 +25,10 @@
                 </div>
                 <div class="admin-nav-section">
                     <div class="admin-nav-label">Kontent</div>
+                    <a href="/admin/homepage" class="<?= str_starts_with($_SERVER['REQUEST_URI'], '/admin/homepage') ? 'active' : '' ?>">
+                        <span class="nav-icon">&#9751;</span>
+                        <span class="nav-text">Ana Səhifə</span>
+                    </a>
                     <a href="/admin/pages" class="<?= str_starts_with($_SERVER['REQUEST_URI'], '/admin/pages') ? 'active' : '' ?>">
                         <span class="nav-icon">&#9783;</span>
                         <span class="nav-text">Səhifələr</span>

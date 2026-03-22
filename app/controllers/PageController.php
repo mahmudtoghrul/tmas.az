@@ -5,6 +5,7 @@ namespace App\Controllers;
 use Core\View;
 use Core\CSRF;
 use App\Models\Service;
+use App\Models\Setting;
 
 class PageController
 {
@@ -15,9 +16,25 @@ class PageController
         } catch (\Throwable $e) {
             $services = [];
         }
+
+        // Load homepage settings from DB with fallback to translation keys
+        $lang = lang();
+        $h = function(string $settingKey, string $translationKey) use ($lang) {
+            $val = Setting::get($settingKey . '_' . $lang);
+            return $val ?: __($translationKey);
+        };
+
+        // Also load language-independent values
+        $hv = function(string $settingKey, string $default = '') {
+            $val = Setting::get($settingKey);
+            return $val ?: $default;
+        };
+
         View::render('pages/home', [
             'title' => __('home_title'),
             'services' => $services,
+            'h' => $h,
+            'hv' => $hv,
         ]);
     }
 
