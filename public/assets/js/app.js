@@ -174,8 +174,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Service Tabs
     // ========================
     const tabsSection = document.getElementById('serviceTabs');
-    if (tabsSection) {
-        const tabBtns = tabsSection.querySelectorAll('.tab-btn');
+    const tabNav = document.querySelector('.tabs-nav');
+    if (tabsSection && tabNav) {
+        const tabBtns = tabNav.querySelectorAll('.tab-btn');
         const tabPanels = tabsSection.querySelectorAll('.tab-panel');
 
         tabBtns.forEach(btn => {
@@ -201,24 +202,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Keyboard navigation for tabs
-        const tabNav = tabsSection.querySelector('.tabs-nav');
-        if (tabNav) {
-            tabNav.addEventListener('keydown', (e) => {
-                const btns = Array.from(tabBtns);
-                const currentIdx = btns.findIndex(b => b.classList.contains('active'));
-                let newIdx = currentIdx;
+        tabNav.addEventListener('keydown', (e) => {
+            const btns = Array.from(tabBtns);
+            const currentIdx = btns.findIndex(b => b.classList.contains('active'));
+            let newIdx = currentIdx;
 
-                if (e.key === 'ArrowRight') {
-                    newIdx = (currentIdx + 1) % btns.length;
-                } else if (e.key === 'ArrowLeft') {
-                    newIdx = (currentIdx - 1 + btns.length) % btns.length;
-                } else {
-                    return;
-                }
+            if (e.key === 'ArrowRight') {
+                newIdx = (currentIdx + 1) % btns.length;
+            } else if (e.key === 'ArrowLeft') {
+                newIdx = (currentIdx - 1 + btns.length) % btns.length;
+            } else {
+                return;
+            }
 
-                e.preventDefault();
-                btns[newIdx].click();
-                btns[newIdx].focus();
+            e.preventDefault();
+            btns[newIdx].click();
+            btns[newIdx].focus();
+        });
+    }
+
+    // ========================
+    // Cases Slider
+    // ========================
+    const casesSlider = document.getElementById('casesSlider');
+    if (casesSlider) {
+        const track = casesSlider.querySelector('.cases-track');
+        const cards = casesSlider.querySelectorAll('.case-card');
+        const prevBtn = casesSlider.querySelector('.cases-prev');
+        const nextBtn = casesSlider.querySelector('.cases-next');
+        let casesIndex = 0;
+
+        function updateCasesSlider() {
+            if (!cards.length) return;
+            const cardWidth = cards[0].offsetWidth + 30; // gap
+            track.style.transform = `translateX(-${casesIndex * cardWidth}px)`;
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                const maxIndex = cards.length - Math.floor(track.parentElement.offsetWidth / (cards[0].offsetWidth + 30));
+                casesIndex = Math.min(casesIndex + 1, Math.max(0, maxIndex));
+                updateCasesSlider();
+            });
+        }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                casesIndex = Math.max(casesIndex - 1, 0);
+                updateCasesSlider();
             });
         }
     }

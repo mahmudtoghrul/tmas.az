@@ -229,6 +229,181 @@
     </div>
 </section>
 
+<!-- Process Steps -->
+<section class="section process-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label"><?= __('process_label') ?></span>
+            <h2 class="section-title"><?= __('process_title') ?></h2>
+        </div>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="process-step-number">01</div>
+                <div class="process-step-content">
+                    <h3><?= __('process_step1_title') ?></h3>
+                    <p><?= __('process_step1_text') ?></p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-step-number">02</div>
+                <div class="process-step-content">
+                    <h3><?= __('process_step2_title') ?></h3>
+                    <p><?= __('process_step2_text') ?></p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-step-number">03</div>
+                <div class="process-step-content">
+                    <h3><?= __('process_step3_title') ?></h3>
+                    <p><?= __('process_step3_text') ?></p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="process-step-number">04</div>
+                <div class="process-step-content">
+                    <h3><?= __('process_step4_title') ?></h3>
+                    <p><?= __('process_step4_text') ?></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Content Slider (Cases) -->
+<section class="section cases-section dark-bg" id="casesSlider">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label"><?= __('cases_label') ?></span>
+            <h2 class="section-title"><?= __('cases_title') ?></h2>
+        </div>
+        <div class="cases-slider">
+            <div class="cases-track">
+                <div class="case-card">
+                    <div class="case-image">
+                        <div class="case-image-placeholder"><i class="fas fa-store"></i></div>
+                    </div>
+                    <div class="case-info">
+                        <span class="case-category"><?= __('case1_category') ?></span>
+                        <h3><?= __('case1_title') ?></h3>
+                        <p><?= __('case1_text') ?></p>
+                        <div class="case-stats">
+                            <div class="case-stat">
+                                <span class="case-stat-value">+240%</span>
+                                <span class="case-stat-label">ROI</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">-35%</span>
+                                <span class="case-stat-label">CPA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image">
+                        <div class="case-image-placeholder"><i class="fas fa-laptop-code"></i></div>
+                    </div>
+                    <div class="case-info">
+                        <span class="case-category"><?= __('case2_category') ?></span>
+                        <h3><?= __('case2_title') ?></h3>
+                        <p><?= __('case2_text') ?></p>
+                        <div class="case-stats">
+                            <div class="case-stat">
+                                <span class="case-stat-value">+180%</span>
+                                <span class="case-stat-label"><?= __('case_traffic') ?></span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">3x</span>
+                                <span class="case-stat-label"><?= __('case_leads') ?></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-image">
+                        <div class="case-image-placeholder"><i class="fas fa-chart-pie"></i></div>
+                    </div>
+                    <div class="case-info">
+                        <span class="case-category"><?= __('case3_category') ?></span>
+                        <h3><?= __('case3_title') ?></h3>
+                        <p><?= __('case3_text') ?></p>
+                        <div class="case-stats">
+                            <div class="case-stat">
+                                <span class="case-stat-value">+320%</span>
+                                <span class="case-stat-label">ROAS</span>
+                            </div>
+                            <div class="case-stat">
+                                <span class="case-stat-value">-50%</span>
+                                <span class="case-stat-label">CPC</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cases-controls">
+                <button class="cases-arrow cases-prev" aria-label="Previous"><i class="fas fa-arrow-left"></i></button>
+                <button class="cases-arrow cases-next" aria-label="Next"><i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section testimonials-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-label"><?= __('testimonials_label') ?></span>
+            <h2 class="section-title"><?= __('testimonials_title') ?></h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p class="testimonial-text"><?= __('testimonial1_text') ?></p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <span><?= __('testimonial1_initials') ?></span>
+                    </div>
+                    <div>
+                        <strong><?= __('testimonial1_name') ?></strong>
+                        <span><?= __('testimonial1_role') ?></span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p class="testimonial-text"><?= __('testimonial2_text') ?></p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <span><?= __('testimonial2_initials') ?></span>
+                    </div>
+                    <div>
+                        <strong><?= __('testimonial2_name') ?></strong>
+                        <span><?= __('testimonial2_role') ?></span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p class="testimonial-text"><?= __('testimonial3_text') ?></p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">
+                        <span><?= __('testimonial3_initials') ?></span>
+                    </div>
+                    <div>
+                        <strong><?= __('testimonial3_name') ?></strong>
+                        <span><?= __('testimonial3_role') ?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- About Preview -->
 <section class="section about-preview dark-bg">
     <div class="container">
