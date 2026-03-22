@@ -109,11 +109,6 @@
 <!-- Service Tabs -->
 <section class="section service-tabs-section" id="serviceTabs">
     <div class="container">
-        <div class="section-header">
-            <span class="section-label"><?= __('tabs_label') ?></span>
-            <h2 class="section-title"><?= __('tabs_title') ?></h2>
-        </div>
-
         <!-- Tab Panels -->
         <div class="tabs-content">
             <!-- Tab 1: Performance Marketing -->
