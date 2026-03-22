@@ -18,6 +18,17 @@ return [
     'hero_cta' => 'Xidmətlərimiz',
     'hero_contact' => 'Əlaqə saxlayın',
 
+    // Slider
+    'slide1_label' => 'Marketinq Konsaltinq',
+    'slide1_title' => 'Biznesinizi Rəqəmsal Dünyada Böyüdürük',
+    'slide1_text' => 'Data-driven yanaşma ilə marketinq strategiyaları hazırlayırıq və biznesinizin davamlı inkişafını təmin edirik.',
+    'slide2_label' => 'Performance Marketing',
+    'slide2_title' => 'Nəticəyə Yönəlmiş Reklam Kampaniyaları',
+    'slide2_text' => 'Hər bir manat investisiyadan maksimum gəlir əldə etmək üçün performansa əsaslanan reklam strategiyaları.',
+    'slide3_label' => 'Growth Hacking',
+    'slide3_title' => 'Sürətli və Davamlı Biznes Artımı',
+    'slide3_text' => 'İnnovativ yanaşmalar və analitik həllər ilə biznesinizin böyüməsini sürətləndiririk.',
+
     // Sections
     'services_title' => 'Xidmətlərimiz',
     'portfolio_title' => 'Portfolio',

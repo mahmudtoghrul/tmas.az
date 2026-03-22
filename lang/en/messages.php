@@ -18,6 +18,17 @@ return [
     'hero_cta' => 'Our Services',
     'hero_contact' => 'Get in Touch',
 
+    // Slider
+    'slide1_label' => 'Marketing Consulting',
+    'slide1_title' => 'Growing Your Business in the Digital World',
+    'slide1_text' => 'We develop marketing strategies with a data-driven approach and ensure the sustainable growth of your business.',
+    'slide2_label' => 'Performance Marketing',
+    'slide2_title' => 'Result-Oriented Ad Campaigns',
+    'slide2_text' => 'Performance-based advertising strategies to maximize return on every dollar invested.',
+    'slide3_label' => 'Growth Hacking',
+    'slide3_title' => 'Rapid & Sustainable Business Growth',
+    'slide3_text' => 'We accelerate your business growth with innovative approaches and analytical solutions.',
+
     // Sections
     'services_title' => 'Our Services',
     'portfolio_title' => 'Portfolio',
