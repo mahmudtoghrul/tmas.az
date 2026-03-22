@@ -171,6 +171,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ========================
+    // Service Tabs
+    // ========================
+    const tabsSection = document.getElementById('serviceTabs');
+    if (tabsSection) {
+        const tabBtns = tabsSection.querySelectorAll('.tab-btn');
+        const tabPanels = tabsSection.querySelectorAll('.tab-panel');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.dataset.tab;
+
+                // Deactivate all
+                tabBtns.forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                tabPanels.forEach(p => p.classList.remove('active'));
+
+                // Activate clicked
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.classList.add('active');
+                }
+            });
+        });
+
+        // Keyboard navigation for tabs
+        const tabNav = tabsSection.querySelector('.tabs-nav');
+        if (tabNav) {
+            tabNav.addEventListener('keydown', (e) => {
+                const btns = Array.from(tabBtns);
+                const currentIdx = btns.findIndex(b => b.classList.contains('active'));
+                let newIdx = currentIdx;
+
+                if (e.key === 'ArrowRight') {
+                    newIdx = (currentIdx + 1) % btns.length;
+                } else if (e.key === 'ArrowLeft') {
+                    newIdx = (currentIdx - 1 + btns.length) % btns.length;
+                } else {
+                    return;
+                }
+
+                e.preventDefault();
+                btns[newIdx].click();
+                btns[newIdx].focus();
+            });
+        }
+    }
+
+    // ========================
     // Smooth scroll for anchor links
     // ========================
     document.querySelectorAll('a[href^="#"]').forEach(link => {

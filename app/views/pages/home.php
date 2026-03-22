@@ -82,23 +82,154 @@
     </div>
 </section>
 
-<!-- Services Preview -->
-<section class="section services-preview">
+<!-- Service Tabs -->
+<section class="section service-tabs-section" id="serviceTabs">
     <div class="container">
-        <h2 class="section-title"><?= __('services_title') ?></h2>
-        <div class="services-grid">
-            <?php foreach (($services ?? []) as $service): ?>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <img src="/uploads/<?= e($service['icon'] ?? '') ?>" alt="">
+        <div class="section-header">
+            <span class="section-label"><?= __('tabs_label') ?></span>
+            <h2 class="section-title"><?= __('tabs_title') ?></h2>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tabs-nav" role="tablist">
+            <button class="tab-btn active" data-tab="tab-performance" role="tab" aria-selected="true">
+                <span class="tab-btn-icon"><i class="fas fa-chart-line"></i></span>
+                <span class="tab-btn-text"><?= __('tab1_name') ?></span>
+            </button>
+            <button class="tab-btn" data-tab="tab-growth" role="tab" aria-selected="false">
+                <span class="tab-btn-icon"><i class="fas fa-rocket"></i></span>
+                <span class="tab-btn-text"><?= __('tab2_name') ?></span>
+            </button>
+            <button class="tab-btn" data-tab="tab-analytics" role="tab" aria-selected="false">
+                <span class="tab-btn-icon"><i class="fas fa-database"></i></span>
+                <span class="tab-btn-text"><?= __('tab3_name') ?></span>
+            </button>
+            <button class="tab-btn" data-tab="tab-strategy" role="tab" aria-selected="false">
+                <span class="tab-btn-icon"><i class="fas fa-chess-queen"></i></span>
+                <span class="tab-btn-text"><?= __('tab4_name') ?></span>
+            </button>
+            <button class="tab-btn" data-tab="tab-creative" role="tab" aria-selected="false">
+                <span class="tab-btn-icon"><i class="fas fa-palette"></i></span>
+                <span class="tab-btn-text"><?= __('tab5_name') ?></span>
+            </button>
+        </div>
+
+        <!-- Tab Panels -->
+        <div class="tabs-content">
+            <!-- Tab 1: Performance Marketing -->
+            <div class="tab-panel active" id="tab-performance" role="tabpanel">
+                <div class="tab-panel-inner">
+                    <div class="tab-image">
+                        <div class="tab-image-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="tab-image-accent"></div>
                     </div>
-                    <h3><?= e($service['title_' . lang()] ?? '') ?></h3>
-                    <p><?= str_limit(e($service['description_' . lang()] ?? ''), 120) ?></p>
-                    <a href="<?= url('/services/' . ($service['slug_' . lang()] ?? '')) ?>" class="link-arrow">
-                        <?= __('learn_more') ?> <i class="fas fa-arrow-right"></i>
-                    </a>
+                    <div class="tab-info">
+                        <h3 class="tab-info-title"><?= __('tab1_title') ?></h3>
+                        <p class="tab-info-desc"><?= __('tab1_desc') ?></p>
+                        <ul class="tab-info-list">
+                            <li><i class="fas fa-check"></i> <?= __('tab1_item1') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab1_item2') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab1_item3') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab1_item4') ?></li>
+                        </ul>
+                        <a href="<?= url('/services') ?>" class="btn btn-accent"><?= __('learn_more') ?></a>
+                    </div>
                 </div>
-            <?php endforeach; ?>
+            </div>
+
+            <!-- Tab 2: Growth Hacking -->
+            <div class="tab-panel" id="tab-growth" role="tabpanel">
+                <div class="tab-panel-inner">
+                    <div class="tab-image">
+                        <div class="tab-image-placeholder">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="tab-image-accent"></div>
+                    </div>
+                    <div class="tab-info">
+                        <h3 class="tab-info-title"><?= __('tab2_title') ?></h3>
+                        <p class="tab-info-desc"><?= __('tab2_desc') ?></p>
+                        <ul class="tab-info-list">
+                            <li><i class="fas fa-check"></i> <?= __('tab2_item1') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab2_item2') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab2_item3') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab2_item4') ?></li>
+                        </ul>
+                        <a href="<?= url('/services') ?>" class="btn btn-accent"><?= __('learn_more') ?></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 3: Marketing Analytics -->
+            <div class="tab-panel" id="tab-analytics" role="tabpanel">
+                <div class="tab-panel-inner">
+                    <div class="tab-image">
+                        <div class="tab-image-placeholder">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="tab-image-accent"></div>
+                    </div>
+                    <div class="tab-info">
+                        <h3 class="tab-info-title"><?= __('tab3_title') ?></h3>
+                        <p class="tab-info-desc"><?= __('tab3_desc') ?></p>
+                        <ul class="tab-info-list">
+                            <li><i class="fas fa-check"></i> <?= __('tab3_item1') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab3_item2') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab3_item3') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab3_item4') ?></li>
+                        </ul>
+                        <a href="<?= url('/services') ?>" class="btn btn-accent"><?= __('learn_more') ?></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 4: Strategic Consulting -->
+            <div class="tab-panel" id="tab-strategy" role="tabpanel">
+                <div class="tab-panel-inner">
+                    <div class="tab-image">
+                        <div class="tab-image-placeholder">
+                            <i class="fas fa-chess-queen"></i>
+                        </div>
+                        <div class="tab-image-accent"></div>
+                    </div>
+                    <div class="tab-info">
+                        <h3 class="tab-info-title"><?= __('tab4_title') ?></h3>
+                        <p class="tab-info-desc"><?= __('tab4_desc') ?></p>
+                        <ul class="tab-info-list">
+                            <li><i class="fas fa-check"></i> <?= __('tab4_item1') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab4_item2') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab4_item3') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab4_item4') ?></li>
+                        </ul>
+                        <a href="<?= url('/services') ?>" class="btn btn-accent"><?= __('learn_more') ?></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab 5: Creative & Branding -->
+            <div class="tab-panel" id="tab-creative" role="tabpanel">
+                <div class="tab-panel-inner">
+                    <div class="tab-image">
+                        <div class="tab-image-placeholder">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="tab-image-accent"></div>
+                    </div>
+                    <div class="tab-info">
+                        <h3 class="tab-info-title"><?= __('tab5_title') ?></h3>
+                        <p class="tab-info-desc"><?= __('tab5_desc') ?></p>
+                        <ul class="tab-info-list">
+                            <li><i class="fas fa-check"></i> <?= __('tab5_item1') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab5_item2') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab5_item3') ?></li>
+                            <li><i class="fas fa-check"></i> <?= __('tab5_item4') ?></li>
+                        </ul>
+                        <a href="<?= url('/services') ?>" class="btn btn-accent"><?= __('learn_more') ?></a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
