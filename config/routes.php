@@ -32,4 +32,9 @@ Router::group('/admin', function () {
     Router::resource('/portfolio', 'Admin\\PortfolioController');
     Router::resource('/blog', 'Admin\\BlogController');
     Router::resource('/settings', 'Admin\\SettingController');
+
+    // Contacts (view & delete only)
+    Router::get('/contacts', 'Admin\\ContactController@index');
+    Router::get('/contacts/{id}', 'Admin\\ContactController@show');
+    Router::delete('/contacts/{id}', 'Admin\\ContactController@destroy');
 });

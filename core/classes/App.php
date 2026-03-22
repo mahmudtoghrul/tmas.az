@@ -23,7 +23,24 @@ class App
             require ROOT_PATH . '/config/routes.php';
 
             $uri = $this->getUri();
-            Router::dispatch($uri, $_SERVER['REQUEST_METHOD']);
+            $method = $_SERVER['REQUEST_METHOD'];
+
+            // Method spoofing: allow PUT/DELETE via POST with _method field
+            if ($method === 'POST' && !empty($_POST['_method'])) {
+                $spoofed = strtoupper($_POST['_method']);
+                if (in_array($spoofed, ['PUT', 'PATCH', 'DELETE'], true)) {
+                    $method = $spoofed;
+                }
+            }
+
+            // Admin auth middleware (except login/logout)
+            if (str_starts_with($uri, '/admin') && !in_array($uri, ['/admin/login'], true)) {
+                if (empty($_SESSION['admin_id'])) {
+                    redirect('/admin/login');
+                }
+            }
+
+            Router::dispatch($uri, $method);
         } catch (\Exception $e) {
             $this->handleError($e);
         }

@@ -80,3 +80,67 @@ function slugify(string $text): string
     $text = preg_replace('/-+/', '-', $text);
     return trim($text, '-');
 }
+
+/** Upload a file and return the relative path */
+function upload_file(array $file, string $directory = 'uploads'): string|false
+{
+    if ($file['error'] !== UPLOAD_ERR_OK || $file['size'] === 0) {
+        return false;
+    }
+
+    $allowed = ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/svg+xml'];
+    $finfo = new \finfo(FILEINFO_MIME_TYPE);
+    $mime = $finfo->file($file['tmp_name']);
+
+    if (!in_array($mime, $allowed, true)) {
+        return false;
+    }
+
+    $ext = match ($mime) {
+        'image/jpeg' => 'jpg',
+        'image/png' => 'png',
+        'image/gif' => 'gif',
+        'image/webp' => 'webp',
+        'image/svg+xml' => 'svg',
+        default => 'jpg',
+    };
+
+    $filename = uniqid('img_', true) . '.' . $ext;
+    $targetDir = ROOT_PATH . '/public/' . trim($directory, '/');
+
+    if (!is_dir($targetDir)) {
+        mkdir($targetDir, 0755, true);
+    }
+
+    $targetPath = $targetDir . '/' . $filename;
+    if (move_uploaded_file($file['tmp_name'], $targetPath)) {
+        return '/' . trim($directory, '/') . '/' . $filename;
+    }
+
+    return false;
+}
+
+/** Get flash message and clear it */
+function flash(string $key = ''): mixed
+{
+    if ($key) {
+        $value = $_SESSION['flash'][$key] ?? null;
+        unset($_SESSION['flash'][$key]);
+        return $value;
+    }
+    $flash = $_SESSION['flash'] ?? [];
+    unset($_SESSION['flash']);
+    return $flash;
+}
+
+/** Set flash message */
+function flash_set(string $key, string $message): void
+{
+    $_SESSION['flash'][$key] = $message;
+}
+
+/** Method spoofing field for forms */
+function method_field(string $method): string
+{
+    return '<input type="hidden" name="_method" value="' . strtoupper($method) . '">';
+}
