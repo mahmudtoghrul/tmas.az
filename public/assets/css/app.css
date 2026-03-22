@@ -546,10 +546,10 @@ ul { list-style: none; }
    SERVICE TABS
    ============================================ */
 .service-tabs-section {
-    padding: 110px 0;
+    padding: 0 0 110px;
     background: var(--gray-50);
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 .service-tabs-section::before {
     content: '';
@@ -567,6 +567,9 @@ ul { list-style: none; }
 .section-header {
     text-align: center;
     margin-bottom: 60px;
+}
+.service-tabs-section .section-header {
+    margin-top: 70px;
 }
 .section-label {
     display: inline-block;
@@ -597,30 +600,31 @@ ul { list-style: none; }
     display: flex;
     justify-content: center;
     gap: 0;
-    margin-bottom: 0;
-    border-bottom: 2px solid var(--gray-200);
+    margin: -45px auto 0;
+    max-width: var(--max-width);
+    width: calc(100% - 40px);
+    background: var(--primary);
     position: relative;
+    z-index: 10;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 }
 .tab-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    padding: 24px 36px;
+    padding: 22px 20px;
     background: none;
     border: none;
-    border-bottom: 3px solid transparent;
     cursor: pointer;
     transition: all var(--transition);
     position: relative;
-    margin-bottom: -2px;
     flex: 1;
-    max-width: 220px;
 }
 .tab-btn::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 3px;
@@ -633,35 +637,39 @@ ul { list-style: none; }
 .tab-btn:hover::after {
     transform: scaleX(1);
 }
+.tab-btn.active,
+.tab-btn:hover {
+    background: rgba(255,255,255,0.08);
+}
 .tab-btn-icon {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background: var(--gray-100);
-    color: var(--gray-600);
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.6);
     font-size: 1.1rem;
     transition: all var(--transition);
 }
 .tab-btn.active .tab-btn-icon,
 .tab-btn:hover .tab-btn-icon {
-    background: var(--primary);
-    color: var(--accent);
+    background: var(--accent);
+    color: var(--white);
 }
 .tab-btn-text {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.8px;
-    color: var(--gray-600);
+    color: rgba(255,255,255,0.6);
     transition: color var(--transition);
     white-space: nowrap;
 }
 .tab-btn.active .tab-btn-text,
 .tab-btn:hover .tab-btn-text {
-    color: var(--primary);
+    color: var(--white);
 }
 
 /* Tab Content */
@@ -1225,7 +1233,9 @@ ul { list-style: none; }
     .tab-image-placeholder { aspect-ratio: 16/9; }
     .tab-image-accent { width: 80px; height: 80px; bottom: -10px; right: -10px; }
     .tab-info-title { font-size: 1.5rem; }
-    .service-tabs-section { padding: 70px 0; }
+    .service-tabs-section { padding: 0 0 70px; }
+    .service-tabs-section .section-header { margin-top: 50px; }
+    .tabs-nav { margin-top: -35px; width: calc(100% - 20px); }
 }
 
 @media (max-width: 480px) {

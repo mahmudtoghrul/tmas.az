@@ -84,34 +84,34 @@
 
 <!-- Service Tabs -->
 <section class="section service-tabs-section" id="serviceTabs">
+    <!-- Tab Navigation (attached to slider) -->
+    <div class="tabs-nav" role="tablist">
+        <button class="tab-btn active" data-tab="tab-performance" role="tab" aria-selected="true">
+            <span class="tab-btn-icon"><i class="fas fa-chart-line"></i></span>
+            <span class="tab-btn-text"><?= __('tab1_name') ?></span>
+        </button>
+        <button class="tab-btn" data-tab="tab-growth" role="tab" aria-selected="false">
+            <span class="tab-btn-icon"><i class="fas fa-rocket"></i></span>
+            <span class="tab-btn-text"><?= __('tab2_name') ?></span>
+        </button>
+        <button class="tab-btn" data-tab="tab-analytics" role="tab" aria-selected="false">
+            <span class="tab-btn-icon"><i class="fas fa-database"></i></span>
+            <span class="tab-btn-text"><?= __('tab3_name') ?></span>
+        </button>
+        <button class="tab-btn" data-tab="tab-strategy" role="tab" aria-selected="false">
+            <span class="tab-btn-icon"><i class="fas fa-chess-queen"></i></span>
+            <span class="tab-btn-text"><?= __('tab4_name') ?></span>
+        </button>
+        <button class="tab-btn" data-tab="tab-creative" role="tab" aria-selected="false">
+            <span class="tab-btn-icon"><i class="fas fa-palette"></i></span>
+            <span class="tab-btn-text"><?= __('tab5_name') ?></span>
+        </button>
+    </div>
+
     <div class="container">
         <div class="section-header">
             <span class="section-label"><?= __('tabs_label') ?></span>
             <h2 class="section-title"><?= __('tabs_title') ?></h2>
-        </div>
-
-        <!-- Tab Navigation -->
-        <div class="tabs-nav" role="tablist">
-            <button class="tab-btn active" data-tab="tab-performance" role="tab" aria-selected="true">
-                <span class="tab-btn-icon"><i class="fas fa-chart-line"></i></span>
-                <span class="tab-btn-text"><?= __('tab1_name') ?></span>
-            </button>
-            <button class="tab-btn" data-tab="tab-growth" role="tab" aria-selected="false">
-                <span class="tab-btn-icon"><i class="fas fa-rocket"></i></span>
-                <span class="tab-btn-text"><?= __('tab2_name') ?></span>
-            </button>
-            <button class="tab-btn" data-tab="tab-analytics" role="tab" aria-selected="false">
-                <span class="tab-btn-icon"><i class="fas fa-database"></i></span>
-                <span class="tab-btn-text"><?= __('tab3_name') ?></span>
-            </button>
-            <button class="tab-btn" data-tab="tab-strategy" role="tab" aria-selected="false">
-                <span class="tab-btn-icon"><i class="fas fa-chess-queen"></i></span>
-                <span class="tab-btn-text"><?= __('tab4_name') ?></span>
-            </button>
-            <button class="tab-btn" data-tab="tab-creative" role="tab" aria-selected="false">
-                <span class="tab-btn-icon"><i class="fas fa-palette"></i></span>
-                <span class="tab-btn-text"><?= __('tab5_name') ?></span>
-            </button>
         </div>
 
         <!-- Tab Panels -->
