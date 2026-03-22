@@ -55,6 +55,11 @@ class Router
             $uri = substr($uri, strlen($prefix)) ?: '/';
         }
 
+        // Normalize: remove trailing slash (except root)
+        if ($uri !== '/' && str_ends_with($uri, '/')) {
+            $uri = rtrim($uri, '/');
+        }
+
         foreach (self::$routes as $route) {
             if ($route['method'] !== $method) continue;
 
@@ -72,9 +77,15 @@ class Router
 
     private static function addRoute(string $method, string $path, string $action): void
     {
+        $fullPath = self::$groupPrefix . $path;
+        // Normalize: remove trailing slash (except root)
+        if ($fullPath !== '/' && str_ends_with($fullPath, '/')) {
+            $fullPath = rtrim($fullPath, '/');
+        }
+
         self::$routes[] = [
             'method' => $method,
-            'path' => self::$groupPrefix . $path,
+            'path' => $fullPath,
             'action' => $action,
         ];
     }
