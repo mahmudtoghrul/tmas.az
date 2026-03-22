@@ -10,7 +10,11 @@ class PageController
 {
     public function home(): void
     {
-        $services = Service::active();
+        try {
+            $services = Service::active();
+        } catch (\Throwable $e) {
+            $services = [];
+        }
         View::render('pages/home', [
             'title' => __('home_title'),
             'services' => $services,
