@@ -546,10 +546,11 @@ ul { list-style: none; }
    SERVICE TABS
    ============================================ */
 .service-tabs-section {
-    padding: 0 0 110px;
+    padding: 100px 0;
+    padding-top: 80px;
     background: var(--gray-50);
     position: relative;
-    overflow: visible;
+    overflow: hidden;
 }
 .service-tabs-section::before {
     content: '';
@@ -569,7 +570,7 @@ ul { list-style: none; }
     margin-bottom: 60px;
 }
 .service-tabs-section .section-header {
-    margin-top: 70px;
+    margin-top: 0;
 }
 .section-label {
     display: inline-block;
@@ -600,12 +601,14 @@ ul { list-style: none; }
     display: flex;
     justify-content: center;
     gap: 0;
-    margin: -45px auto 0;
+    margin: 0 auto;
     max-width: var(--max-width);
     width: calc(100% - 40px);
     background: var(--primary);
     position: relative;
-    z-index: 10;
+    z-index: 20;
+    margin-top: -45px;
+    margin-bottom: -45px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 }
 .tab-btn {
@@ -1233,9 +1236,8 @@ ul { list-style: none; }
     .tab-image-placeholder { aspect-ratio: 16/9; }
     .tab-image-accent { width: 80px; height: 80px; bottom: -10px; right: -10px; }
     .tab-info-title { font-size: 1.5rem; }
-    .service-tabs-section { padding: 0 0 70px; }
-    .service-tabs-section .section-header { margin-top: 50px; }
-    .tabs-nav { margin-top: -35px; width: calc(100% - 20px); }
+    .service-tabs-section { padding: 70px 0; padding-top: 60px; }
+    .tabs-nav { margin-top: -35px; margin-bottom: -35px; width: calc(100% - 20px); }
 }
 
 @media (max-width: 480px) {
