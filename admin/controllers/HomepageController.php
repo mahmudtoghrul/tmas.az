@@ -129,3 +129,4 @@ class HomepageController
         return false;
     }
 }
+# Homepage CMS section added
