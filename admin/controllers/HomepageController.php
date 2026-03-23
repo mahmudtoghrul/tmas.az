@@ -121,8 +121,11 @@ class HomepageController
 
     private function isLangIndependent(string $key): bool
     {
-        // Stat values, initials are not language-dependent
-        return str_contains($key, '_stat') && str_contains($key, '_value')
-            || str_contains($key, '_initials');
+        if (str_contains($key, '_initials')) return true;
+        // Case stat values & labels (ROI, CPA, +240% etc.) — no language suffix
+        if (preg_match('/home_case\d+_stat\d+_(value|label)/', $key)) return true;
+        // About stat values (50+, 30+ etc.) — no language suffix
+        if (preg_match('/home_stat\d+_value/', $key)) return true;
+        return false;
     }
 }
