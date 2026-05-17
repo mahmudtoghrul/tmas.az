@@ -8,6 +8,12 @@ use Core\View;
 
 class HomepageController
 {
+    private array $imageKeys = [
+        'home_slide1_image', 'home_slide2_image', 'home_slide3_image',
+        'home_tab1_image', 'home_tab2_image', 'home_tab3_image', 'home_tab4_image', 'home_tab5_image',
+        'home_case1_image', 'home_case2_image', 'home_case3_image',
+    ];
+
     /**
      * Homepage section keys grouped by section.
      * Each key gets _az, _ru, _en suffixes for multilingual support.
@@ -71,7 +77,6 @@ class HomepageController
 
         foreach ($this->sections as $section => $keys) {
             foreach ($keys as $key) {
-                // Some keys are language-independent (stat values, initials)
                 if ($this->isLangIndependent($key)) {
                     $data[$key] = Setting::get($key);
                 } else {
@@ -80,6 +85,10 @@ class HomepageController
                     }
                 }
             }
+        }
+
+        foreach ($this->imageKeys as $key) {
+            $data[$key] = Setting::get($key);
         }
 
         View::adminRender('homepage/index', [
@@ -115,6 +124,15 @@ class HomepageController
             }
         }
 
+        foreach ($this->imageKeys as $key) {
+            if (!empty($_FILES[$key]) && $_FILES[$key]['error'] === UPLOAD_ERR_OK) {
+                $path = upload_file($_FILES[$key], 'uploads/homepage');
+                if ($path) {
+                    Setting::set($key, $path);
+                }
+            }
+        }
+
         flash_set('success', 'Ana səhifə uğurla yeniləndi');
         redirect('/admin/homepage');
     }
@@ -122,11 +140,8 @@ class HomepageController
     private function isLangIndependent(string $key): bool
     {
         if (str_contains($key, '_initials')) return true;
-        // Case stat values & labels (ROI, CPA, +240% etc.) — no language suffix
         if (preg_match('/home_case\d+_stat\d+_(value|label)/', $key)) return true;
-        // About stat values (50+, 30+ etc.) — no language suffix
         if (preg_match('/home_stat\d+_value/', $key)) return true;
         return false;
     }
 }
-# Homepage CMS section added

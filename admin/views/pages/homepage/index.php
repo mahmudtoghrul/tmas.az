@@ -10,7 +10,7 @@ function hval(array $data, string $key, string $lang = ''): string {
     <h1>Ana Səhifə Redaktəsi</h1>
 </div>
 
-<form method="POST" action="/admin/homepage" class="admin-form" style="max-width:100%">
+<form method="POST" action="/admin/homepage" class="admin-form" style="max-width:100%" enctype="multipart/form-data">
     <?= csrf_field() ?>
 
     <!-- ============ HERO SLIDER ============ -->
@@ -22,6 +22,14 @@ function hval(array $data, string $key, string $lang = ''): string {
         <?php for ($i = 1; $i <= 3; $i++): ?>
         <div style="background:var(--admin-bg);padding:16px;border-radius:8px;margin-bottom:16px">
             <h4 style="margin-bottom:12px;font-size:0.9rem">Slayd <?= $i ?></h4>
+            <div class="form-group">
+                <label>Arxa fon şəkli</label>
+                <?php $slideImg = $data["home_slide{$i}_image"] ?? ''; ?>
+                <?php if ($slideImg): ?>
+                    <div style="margin-bottom:8px"><img src="<?= e($slideImg) ?>" style="max-width:300px;max-height:120px;border-radius:6px;object-fit:cover"></div>
+                <?php endif; ?>
+                <input type="file" name="home_slide<?= $i ?>_image" accept="image/*" class="form-control">
+            </div>
             <div class="lang-tabs">
                 <button type="button" class="lang-tab <?= $i === 1 ? 'active' : '' ?>" data-lang="az" onclick="switchLang(this,'slide<?= $i ?>')">AZ</button>
                 <button type="button" class="lang-tab" data-lang="ru" onclick="switchLang(this,'slide<?= $i ?>')">RU</button>
@@ -62,6 +70,14 @@ function hval(array $data, string $key, string $lang = ''): string {
         <details style="background:var(--admin-bg);padding:16px;border-radius:8px;margin-bottom:12px">
             <summary style="cursor:pointer;font-weight:600;font-size:0.9rem">Tab <?= $i ?>: <?= $tabNames[$i-1] ?></summary>
             <div style="margin-top:12px">
+                <div class="form-group">
+                    <label>Tab şəkli</label>
+                    <?php $tabImg = $data["home_tab{$i}_image"] ?? ''; ?>
+                    <?php if ($tabImg): ?>
+                        <div style="margin-bottom:8px"><img src="<?= e($tabImg) ?>" style="max-width:200px;max-height:100px;border-radius:6px;object-fit:cover"></div>
+                    <?php endif; ?>
+                    <input type="file" name="home_tab<?= $i ?>_image" accept="image/*" class="form-control">
+                </div>
                 <div class="lang-tabs">
                     <button type="button" class="lang-tab active" data-lang="az" onclick="switchLang(this,'tab<?= $i ?>')">AZ</button>
                     <button type="button" class="lang-tab" data-lang="ru" onclick="switchLang(this,'tab<?= $i ?>')">RU</button>
@@ -160,6 +176,14 @@ function hval(array $data, string $key, string $lang = ''): string {
         <details style="background:var(--admin-bg);padding:16px;border-radius:8px;margin-bottom:12px">
             <summary style="cursor:pointer;font-weight:600;font-size:0.9rem">Keys <?= $i ?></summary>
             <div style="margin-top:12px">
+                <div class="form-group">
+                    <label>Keys şəkli</label>
+                    <?php $caseImg = $data["home_case{$i}_image"] ?? ''; ?>
+                    <?php if ($caseImg): ?>
+                        <div style="margin-bottom:8px"><img src="<?= e($caseImg) ?>" style="max-width:200px;max-height:100px;border-radius:6px;object-fit:cover"></div>
+                    <?php endif; ?>
+                    <input type="file" name="home_case<?= $i ?>_image" accept="image/*" class="form-control">
+                </div>
                 <div class="lang-tabs">
                     <button type="button" class="lang-tab active" data-lang="az" onclick="switchLang(this,'case<?= $i ?>')">AZ</button>
                     <button type="button" class="lang-tab" data-lang="ru" onclick="switchLang(this,'case<?= $i ?>')">RU</button>

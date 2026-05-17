@@ -3,7 +3,7 @@
     <div class="hero-slides">
         <!-- Slide 1 -->
         <div class="hero-slide active" data-slide="0">
-            <div class="slide-bg">
+            <div class="slide-bg" <?php if ($img = $hv('home_slide1_image')): ?>style="background-image:url('<?= e($img) ?>')"<?php endif; ?>>
                 <div class="slide-overlay"></div>
             </div>
             <div class="container">
@@ -21,7 +21,7 @@
 
         <!-- Slide 2 -->
         <div class="hero-slide" data-slide="1">
-            <div class="slide-bg slide-bg-2">
+            <div class="slide-bg slide-bg-2" <?php if ($img = $hv('home_slide2_image')): ?>style="background-image:url('<?= e($img) ?>')"<?php endif; ?>>
                 <div class="slide-overlay"></div>
             </div>
             <div class="container">
@@ -39,7 +39,7 @@
 
         <!-- Slide 3 -->
         <div class="hero-slide" data-slide="2">
-            <div class="slide-bg slide-bg-3">
+            <div class="slide-bg slide-bg-3" <?php if ($img = $hv('home_slide3_image')): ?>style="background-image:url('<?= e($img) ?>')"<?php endif; ?>>
                 <div class="slide-overlay"></div>
             </div>
             <div class="container">
@@ -119,9 +119,13 @@
             <div class="tab-panel <?= $i === 1 ? 'active' : '' ?>" id="<?= $tabIds[$i-1] ?>" role="tabpanel">
                 <div class="tab-panel-inner">
                     <div class="tab-image">
-                        <div class="tab-image-placeholder">
-                            <i class="fas <?= $tabIcons[$i-1] ?>"></i>
-                        </div>
+                        <?php if ($tabImg = $hv("home_tab{$i}_image")): ?>
+                            <img src="<?= e($tabImg) ?>" alt="<?= $h("home_tab{$i}_title", "tab{$i}_title") ?>">
+                        <?php else: ?>
+                            <div class="tab-image-placeholder">
+                                <i class="fas <?= $tabIcons[$i-1] ?>"></i>
+                            </div>
+                        <?php endif; ?>
                         <div class="tab-image-accent"></div>
                     </div>
                     <div class="tab-info">
@@ -178,7 +182,11 @@
                 ?>
                 <div class="case-card">
                     <div class="case-image">
-                        <div class="case-image-placeholder"><i class="fas <?= $caseIcons[$i-1] ?>"></i></div>
+                        <?php if ($caseImg = $hv("home_case{$i}_image")): ?>
+                            <img src="<?= e($caseImg) ?>" alt="<?= $h("home_case{$i}_title", "case{$i}_title") ?>">
+                        <?php else: ?>
+                            <div class="case-image-placeholder"><i class="fas <?= $caseIcons[$i-1] ?>"></i></div>
+                        <?php endif; ?>
                     </div>
                     <div class="case-info">
                         <span class="case-category"><?= $h("home_case{$i}_category", "case{$i}_category") ?></span>
