@@ -166,6 +166,21 @@ document.addEventListener('DOMContentLoaded', () => {
         slider.addEventListener('mouseenter', stopAutoplay);
         slider.addEventListener('mouseleave', startAutoplay);
 
+        // Mobile background swap
+        function applyMobileBgs() {
+            const isMobile = window.innerWidth <= 768;
+            slider.querySelectorAll('.slide-bg[data-mobile-bg]').forEach(bg => {
+                if (!bg.dataset.desktopBg) {
+                    bg.dataset.desktopBg = bg.style.backgroundImage;
+                }
+                bg.style.backgroundImage = isMobile
+                    ? "url('" + bg.dataset.mobileBg + "')"
+                    : bg.dataset.desktopBg;
+            });
+        }
+        applyMobileBgs();
+        window.addEventListener('resize', applyMobileBgs);
+
         // Start
         startAutoplay();
     }

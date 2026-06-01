@@ -22,13 +22,23 @@ function hval(array $data, string $key, string $lang = ''): string {
         <?php for ($i = 1; $i <= 3; $i++): ?>
         <div style="background:var(--admin-bg);padding:16px;border-radius:8px;margin-bottom:16px">
             <h4 style="margin-bottom:12px;font-size:0.9rem">Slayd <?= $i ?></h4>
-            <div class="form-group">
-                <label>Arxa fon şəkli</label>
-                <?php $slideImg = $data["home_slide{$i}_image"] ?? ''; ?>
-                <?php if ($slideImg): ?>
-                    <div style="margin-bottom:8px"><img src="<?= e($slideImg) ?>" style="max-width:300px;max-height:120px;border-radius:6px;object-fit:cover"></div>
-                <?php endif; ?>
-                <input type="file" name="home_slide<?= $i ?>_image" accept="image/*" class="form-control">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+                <div class="form-group">
+                    <label>Desktop şəkli <small style="color:#888">Tövsiyə: 1920×600px</small></label>
+                    <?php $slideImg = $data["home_slide{$i}_image"] ?? ''; ?>
+                    <?php if ($slideImg): ?>
+                        <div style="margin-bottom:8px"><img src="<?= e($slideImg) ?>" style="max-width:300px;max-height:120px;border-radius:6px;object-fit:cover"></div>
+                    <?php endif; ?>
+                    <input type="file" name="home_slide<?= $i ?>_image" accept="image/*" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Mobil şəkli <small style="color:#888">Tövsiyə: 768×900px (ixtiyari)</small></label>
+                    <?php $slideMobileImg = $data["home_slide{$i}_image_mobile"] ?? ''; ?>
+                    <?php if ($slideMobileImg): ?>
+                        <div style="margin-bottom:8px"><img src="<?= e($slideMobileImg) ?>" style="max-width:200px;max-height:120px;border-radius:6px;object-fit:cover"></div>
+                    <?php endif; ?>
+                    <input type="file" name="home_slide<?= $i ?>_image_mobile" accept="image/*" class="form-control">
+                </div>
             </div>
             <div class="lang-tabs">
                 <button type="button" class="lang-tab <?= $i === 1 ? 'active' : '' ?>" data-lang="az" onclick="switchLang(this,'slide<?= $i ?>')">AZ</button>

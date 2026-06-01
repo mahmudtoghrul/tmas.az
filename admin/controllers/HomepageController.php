@@ -9,7 +9,9 @@ use Core\View;
 class HomepageController
 {
     private array $imageKeys = [
-        'home_slide1_image', 'home_slide2_image', 'home_slide3_image',
+        'home_slide1_image', 'home_slide1_image_mobile',
+        'home_slide2_image', 'home_slide2_image_mobile',
+        'home_slide3_image', 'home_slide3_image_mobile',
         'home_tab1_image', 'home_tab2_image', 'home_tab3_image', 'home_tab4_image', 'home_tab5_image',
         'home_case1_image', 'home_case2_image', 'home_case3_image',
     ];

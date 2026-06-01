@@ -3,7 +3,7 @@
     <div class="hero-slides">
         <!-- Slide 1 -->
         <div class="hero-slide active" data-slide="0">
-            <div class="slide-bg" <?php if ($img = $hv('home_slide1_image')): ?>style="background-image:url('<?= e($img) ?>')"<?php endif; ?>>
+            <div class="slide-bg" <?php if ($img = $hv('home_slide1_image')): ?>style="background-image:url('<?= e($img) ?>')"<?php endif; ?> <?php if ($mimg = $hv('home_slide1_image_mobile')): ?>data-mobile-bg="<?= e($mimg) ?>"<?php endif; ?>>
                 <div class="slide-overlay"></div>
             </div>
             <div class="container">
@@ -21,7 +21,7 @@
 
         <!-- Slide 2 -->
         <div class="hero-slide" data-slide="1">
-            <div class="slide-bg slide-bg-2" <?php if ($img = $hv('home_slide2_image')): ?>style="background-image:url('<?= e($img) ?>')"<?php endif; ?>>
+            <div class="slide-bg slide-bg-2" <?php if ($img = $hv('home_slide2_image')): ?>style="background-image:url('<?= e($img) ?>')"<?php endif; ?> <?php if ($mimg = $hv('home_slide2_image_mobile')): ?>data-mobile-bg="<?= e($mimg) ?>"<?php endif; ?>>
                 <div class="slide-overlay"></div>
             </div>
             <div class="container">
@@ -39,7 +39,7 @@
 
         <!-- Slide 3 -->
         <div class="hero-slide" data-slide="2">
-            <div class="slide-bg slide-bg-3" <?php if ($img = $hv('home_slide3_image')): ?>style="background-image:url('<?= e($img) ?>')"<?php endif; ?>>
+            <div class="slide-bg slide-bg-3" <?php if ($img = $hv('home_slide3_image')): ?>style="background-image:url('<?= e($img) ?>')"<?php endif; ?> <?php if ($mimg = $hv('home_slide3_image_mobile')): ?>data-mobile-bg="<?= e($mimg) ?>"<?php endif; ?>>
                 <div class="slide-overlay"></div>
             </div>
             <div class="container">
